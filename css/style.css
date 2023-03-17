@@ -1,0 +1,118 @@
+@font-face {
+    font-family: Ninja;
+    src: url(../font/njnaruto.ttf);
+ }
+
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: black;
+}
+
+.game-board{
+    width: 80%;
+    height: 500px;
+    border-radius: 5px;
+    border-bottom: 15px solid rgb(0, 55, 0);
+    margin: 0 auto;
+    margin-top: 5%;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 3px 2px 7px rgba(255, 235, 205, 0.54);
+}
+
+.shuriken {
+    position: absolute;
+    bottom: 0%;
+    width: 80px;
+    animation: shuriken-animation 1.5s infinite linear, spin .3s linear infinite;
+}
+
+
+.naruto {
+    width: 150px;
+    position: absolute;
+    bottom: 0%;
+}
+
+.flora {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+			/* background-repeat: repeat-x;
+    position: absolute;
+    animation: loop 4s infinite linear; */
+}
+
+p{
+    position: absolute;
+    color: white;
+    size: 12pt;
+}
+
+.inicio {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: block;
+    margin: 0 auto;
+}
+
+.jump {
+    animation: jump 500ms ease-out;
+}
+p{
+    font-family: Ninja;
+    color: rgba(130, 66, 29, 0.92);
+    margin: 20px;
+    right: -5px;
+}
+.score{
+    font-family: Ninja;
+    color: rgb(192, 96, 40);
+}
+
+@keyframes shuriken-animation {
+    from {
+        right: -80px;
+    }
+
+    to {
+        right: 100%;
+    }
+}
+
+@keyframes jump {
+    0% {
+        bottom: 0;
+    }
+
+    40% {
+        bottom: 180px;
+    }
+
+    50% {
+        bottom: 180px;
+    }
+    
+    60% {
+        bottom: 180px;
+    }
+
+    100% {
+        bottom: 0;
+    }
+}
+
+@keyframes spin { 
+    100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } 
+}
+
+

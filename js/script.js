@@ -1,4 +1,3 @@
-
 const naruto = document.querySelector('.naruto');
 const shuriken = document.querySelector('.shuriken');
 const flora = document.querySelector('.flora');
@@ -12,55 +11,55 @@ const jump = () => {
   setTimeout(() => {
     naruto.classList.remove('jump');
   }, 500);
-}
+};
+
 const startGame = () => {
   let gameStarted = false;
 
   const loop = setInterval(() => {
     // código do loop do jogo aqui
     
-  const shurikenPosition = shuriken.offsetLeft;
-  const narutoPosition =+ window.getComputedStyle(naruto).bottom.replace('px', '');
+    const shurikenPosition = shuriken.offsetLeft;
+    const narutoPosition =+ window.getComputedStyle(naruto).bottom.replace('px', '');
 
-  if (shurikenPosition <= 145 && shurikenPosition > 0 && narutoPosition < 80) {
-    // personagem colidiu com o obstáculo
-    shuriken.style.animation = 'none';
-    shuriken.style.left = `${shurikenPosition}px`;
-    naruto.style.animation = 'none';
-    naruto.style.bottom = `${narutoPosition}px`;
-    naruto.src = 'images/explosão.gif';
-    naruto.style.marginLeft = '50px';
-    flora.src ='images/flora3.jpg';
-    clearInterval(loop);
-  } else if (shurikenPosition <= 0 && shurikenPosition > -20) {
-    // personagem pulou sobre o obstáculo
-    if (!shuriken.hasAttribute("scored")) { // verifica se o obstáculo já foi contado
-      score++; // incrementa a contagem de pontos
-      scoreSpan.textContent = score; // atualiza o conteúdo do elemento span
-      shuriken.setAttribute("scored", true); // marca o obstáculo como contado
+    if (shurikenPosition <= 145 && shurikenPosition > 0 && narutoPosition < 80) {
+      // personagem colidiu com o obstáculo
+      shuriken.style.animation = 'none';
+      shuriken.style.left = `${shurikenPosition}px`;
+      naruto.style.animation = 'none';
+      naruto.style.bottom = `${narutoPosition}px`;
+      naruto.src = 'images/explosão.gif';
+      naruto.style.marginLeft = '50px';
+      flora.src ='images/flora3.jpg';
+      clearInterval(loop);
+    } else if (shurikenPosition <= 0 && shurikenPosition > -20) {
+      // personagem pulou sobre o obstáculo
+      if (!shuriken.hasAttribute("scored")) { // verifica se o obstáculo já foi contado
+        score++; // incrementa a contagem de pontos
+        scoreSpan.textContent = score; // atualiza o conteúdo do elemento span
+        shuriken.setAttribute("scored", true); // marca o obstáculo como contado
+      }
+    } else {
+      shuriken.removeAttribute("scored"); // remove a marcação do obstáculo se o personagem não passou por ele
     }
-  } else {
-    shuriken.removeAttribute("scored"); // remove a marcação do obstáculo se o personagem não passou por ele
-  }
 
-  console.log(score); // mostra a contagem de pontos no console
+    console.log(score); // mostra a contagem de pontos no console
+  }, 10);
 
+  // Adiciona um evento de clique à página para pular no touch
+  document.addEventListener('touchstart', () => {
+    jump();
+  });
 
-document.addEventListener('keydown', jump);
-}, 10);
-
-}
+  // Adiciona um evento de tecla pressionada à página para pular no teclado
+  document.addEventListener('keydown', event => {
+    if (event.code === 'Space') {
+      jump();
+    }
+  });
+};
 
 startGame();
-
-// const restartButton = document.querySelector('.restart');
-// restartButton.addEventListener('click', () => {
-//   resetGame();
-// });
-
-
-
-
 
 const restart = () => {
   // Recarrega a página para reiniciar o jogo
@@ -83,4 +82,3 @@ document.addEventListener('keydown', event => {
     }
   }
 });
-

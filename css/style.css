@@ -73,10 +73,12 @@ p{
     color: rgba(130, 66, 29, 0.92);
     margin: 20px;
     right: -5px;
+    font-size: 26px;
 }
 .score{
     font-family: Ninja;
     color: rgb(192, 96, 40);
+    
 }
 
 @keyframes shuriken-animation {

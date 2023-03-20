@@ -118,3 +118,19 @@ p{
 }
 
 
+
+
+
+.reset-button {
+    display: block;
+    margin: 0 auto;
+    padding: 10px 20px;
+    background-color: #4f280d;
+    color: #fff;
+    font-size: 26px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+

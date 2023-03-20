@@ -82,3 +82,12 @@ document.addEventListener('keydown', event => {
     }
   }
 });
+
+const resetButton = document.querySelector('.reset-button');
+
+resetButton.addEventListener('click', function() {
+  location.reload();
+});
+
+resetButton.style.display = 'block';
+resetButton.style.margin = '0 auto';
